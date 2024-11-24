@@ -3,7 +3,7 @@ import { Posts } from "@/components/account/posts";
 import { Profile } from "@/components/account/profile";
 import { SavedPosts } from "@/components/account/saved";
 import { Settings } from "@/components/account/settings";
-import { signOut, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
