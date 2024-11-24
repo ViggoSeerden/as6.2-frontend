@@ -43,43 +43,16 @@ export default function Index() {
           console.log(data)
           setResponse(data)
         })
+        .catch((error) => {
+          console.log(error)
+          setResponse(error)
+        })
     }
   }
 
   return (
     <div className="ml-5 mt-5">
       <p className="text-[26px] mb-5">Welcome to the Osso Online Frontend!</p>
-      <p className="text-[18px] mb-5">This page is for testing the endpoints in a kubernetes environment, which has all requests go through the gateway/ingress first.</p>
-      <div>
-        <p className="text-[22px] mb-1">Test Request:</p>
-        <div className="flex flex-col w-min gap-5">
-          <input className="bg-slate-700 rounded-lg h-10 w-[400px] px-2" placeholder="Url + Endpoint" onChange={(e) => setUrl(e.target.value)} />
-          <select className="bg-slate-700 h-10 rounded-lg px-2" onChange={(e) => setMethod(e.target.value)}>
-            <option value="GET">Get</option>
-            <option value="POST">Post</option>
-            <option value="PUT">Put</option>
-            <option value="DELETE">Delete</option>
-          </select>
-          <select className="bg-slate-700 h-10 rounded-lg px-2" onChange={(e) => setService(e.target.value)}>
-            <option value="user">User Service</option>
-            <option value="post">Post Service</option>
-            <option value="chat">Chat Service</option>
-          </select>
-          <div className="flex flex-row gap-5">
-            <input type="checkbox" checked={enabledBody} onChange={(e) => setEnabledBody(e.target.checked)} />
-            <p>Enable Body</p>
-          </div>
-          <div className="flex flex-row w-min gap-5">
-            <input disabled={!enabledBody} className="bg-slate-700 rounded-lg h-10 w-[400px] px-2 disabled:bg-slate-900" placeholder="Key" onChange={(e) => setBodyKey(e.target.value)} />
-            <input disabled={!enabledBody} className="bg-slate-700 rounded-lg h-10 w-[400px] px-2 disabled:bg-slate-900" placeholder="Value" onChange={(e) => setBodyValue(e.target.value)} />
-          </div>
-        </div>
-        <button className="my-5 bg-teal-700 p-3 rounded-xl" onClick={sendRequest}>Send Request</button>
-        <div className="flex flex-col gap-5">
-          <p>Response:</p>
-          <p>{response}</p>
-        </div>
-      </div>
     </div>
   )
 }
