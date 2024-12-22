@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
     AUTH_AUTH0_ID: process.env.AUTH_AUTH0_ID,
     AUTH_AUTH0_AUDIENCE: process.env.AUTH_AUTH0_AUDIENCE,
     AUTH_AUTH0_SECRET: process.env.AUTH_AUTH0_SECRET,
+    GATEWAY_URL: process.env.GATEWAY_URL,
   }
 };
 
