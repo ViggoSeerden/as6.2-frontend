@@ -53,6 +53,8 @@ spec:
                 secretKeyRef:
                   name: secrets
                   key: AUTH_URL
+          - name: AUTH_TRUST_HOST
+            value: true
 ---
 apiVersion: v1
 kind: Service
