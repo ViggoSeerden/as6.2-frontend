@@ -32,12 +32,12 @@ spec:
             valueFrom:
                 secretKeyRef:
                   name: secrets
-                  key: AUTHJS_SECRET
+                  key: AUTH0_DOMAIN
           - name: AUTH_AUTH0_AUDIENCE
             valueFrom:
                 secretKeyRef:
                   name: secrets
-                  key: AUTHJS_SECRET
+                  key: AUTH0_AUDIENCE
           - name: AUTH_SECRET
             valueFrom:
                 secretKeyRef:
@@ -53,8 +53,6 @@ spec:
                 secretKeyRef:
                   name: secrets
                   key: AUTH_URL
-          - name: AUTH_TRUST_HOST
-            value: "true"
 ---
 apiVersion: v1
 kind: Service
