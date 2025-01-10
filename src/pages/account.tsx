@@ -23,21 +23,6 @@ export default function AccountPage() {
         if (redirect) {
             router.replace('/login')
         }
-
-        // if (session) {
-        //     fetch('http://localhost:5157/api/users', {
-        //         method: 'GET',
-        //         headers: {
-        //             'Authorization': `Bearer ${session?.accessToken}`
-        //         }
-        //     }).then(res => res.json())
-        //         .then(data => {
-        //             console.log(data)
-        //         })
-        //         .catch(error => {
-        //             console.log(error)
-        //         })
-        // }
     }, [redirect, session])
 
     return (

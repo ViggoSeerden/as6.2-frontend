@@ -12,8 +12,21 @@ export default function Login() {
 
     useEffect(() => {
         if (session) {
-            console.log(session)
-            router.push('/account')
+            fetch('http://localhost:5157/api/users', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${session?.accessToken}`,
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: session.user?.name,
+                    email: session.user?.email
+                })
+            })
+                .then(res => res.json())
+                .then(() => {
+                    router.push('/account')
+                })
         }
 
         if (error.length > 0) {
