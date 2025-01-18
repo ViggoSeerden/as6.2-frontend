@@ -21,15 +21,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             if (account && profile) {
                 return {
                     ...token,
-                    accessToken: account.access_token,
-                    // groups: profile['cognito:groups'],
+                    accessToken: account.access_token
                 };
             }
             return token;
         },
         async session({ session, token }) {
             session.accessToken = token.accessToken as string | undefined;
-            // session.groups = token.groups;
             return session;
         },
     },
@@ -38,6 +36,5 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 declare module 'next-auth' {
     interface Session {
         accessToken?: string;
-        // groups?: any;
     }
 }
