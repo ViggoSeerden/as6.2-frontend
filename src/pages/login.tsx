@@ -12,7 +12,7 @@ export default function Login() {
 
     useEffect(() => {
         if (session) {
-            fetch('http://localhost:5157/api/users', {
+            fetch(`${process.env.GATEWAY_URL ?? 'http://localhost:5157'}/api/users`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${session?.accessToken}`,
